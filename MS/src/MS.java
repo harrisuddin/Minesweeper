@@ -146,7 +146,7 @@ public class MS {
 				System.out.println(this.toString(true));
 			} else if (field.getCell(row, column).isZero()) {
 				field.getCell(row, column).setVisible();
-				field.isZeroAdjacent(row, column);
+				field.showAdjacentCells(row, column);
 				checkWin();
 			} else {
 				field.getCell(row, column).setVisible();

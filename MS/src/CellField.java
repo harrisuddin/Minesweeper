@@ -45,12 +45,13 @@ public class CellField {
 
 	/**
 	 * A recursive algorithm that checks if adjacent cells are equal to 0 and if so
-	 * then it will make that cell visible
+	 * then it will make that cell visible. If an adjacent cell is <=8 then it will
+	 * make it visible but not run the algorithm on that cell
 	 * 
 	 * @param column
 	 * @param row
 	 */
-	public void isZeroAdjacent(int row, int column) {
+	public void showAdjacentCells(int row, int column) {
 		for (int i = row - 1; i <= row + 1; i++) {
 			for (int j = column - 1; j <= column + 1; j++) {
 				try {
@@ -59,7 +60,7 @@ public class CellField {
 					if (!(i == row && j == column)) {
 						if (this.getCell(i, j).isZero() && !this.getCell(i, j).isVisible()) {
 							this.getCell(i, j).setVisible();
-							this.isZeroAdjacent(i, j);
+							this.showAdjacentCells(i, j);
 						} else if (this.getCell(i, j).getValue() <= 8 && !this.getCell(i, j).isVisible()) {
 							this.getCell(i, j).setVisible();
 						}
